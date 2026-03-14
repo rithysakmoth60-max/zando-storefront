@@ -307,7 +307,7 @@ function App() {
         </div>
       </nav>
 
-      <div className="w-full max-w-[1500px] mx-auto p-6 md:p-10 flex flex-col xl:flex-row items-start gap-8 mt-4">
+      <div className="w-full max-w-[1500px] mx-auto p-6 md:p-10 flex flex-col lg:flex-row items-start gap-8 mt-4">
         
         <div className="flex-1 w-full">
           <div className="flex justify-between items-end mb-6 border-b-2 border-slate-800 pb-4">
@@ -319,7 +319,7 @@ function App() {
           ) : products.length === 0 ? (
             <div className="text-center py-20 text-slate-500 text-lg">Our store is currently empty. Check back soon!</div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {products.map((product) => (
                 <div key={product.sku} className="bg-slate-900 rounded-3xl border-2 border-slate-800 p-6 hover:border-slate-600 transition-colors shadow-xl flex flex-col h-full">
                   
@@ -376,7 +376,7 @@ function App() {
           )}
         </div>
 
-        <div className="w-full xl:w-[450px] shrink-0 sticky top-10">
+        <div className="w-full lg:w-[350px] xl:w-[450px] shrink-0 sticky top-10">
           <div className="bg-slate-900 p-6 rounded-3xl border-2 border-slate-800 shadow-2xl flex flex-col max-h-[calc(100vh-80px)]">
             
             <h2 className="text-xl font-black mb-6 border-b-2 border-slate-800 pb-5 tracking-tight text-white shrink-0">Your Cart</h2>
