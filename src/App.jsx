@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { initializeApp } from 'firebase/app';
-// 👇 Removed all the complicated Phone/SMS tools, kept only Email & Google!
 import { getAuth, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
 // 🔥 FIREBASE CONFIGURATION 🔥
@@ -320,13 +319,18 @@ function App() {
           ) : products.length === 0 ? (
             <div className="text-center py-20 text-slate-500 text-lg">Our store is currently empty. Check back soon!</div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {products.map((product) => (
                 <div key={product.sku} className="bg-slate-900 rounded-3xl border-2 border-slate-800 p-6 hover:border-slate-600 transition-colors shadow-xl flex flex-col h-full">
                   
-                  <div className="h-64 w-full bg-black border-2 border-slate-700 mb-5 flex items-center justify-center overflow-hidden rounded-2xl relative group">
+                  {/* 👇 BULLETPROOF IMAGE CONTAINER FIX 👇 */}
+                  <div className="relative w-full h-60 bg-black border-2 border-slate-700 mb-5 flex items-center justify-center overflow-hidden rounded-2xl group shrink-0">
                     {product.image_url ? (
-                      <img src={product.image_url} alt={product.name} className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                      <img 
+                        src={product.image_url} 
+                        alt={product.name} 
+                        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" 
+                      />
                     ) : (
                       <div className="text-slate-600 text-xs tracking-widest font-bold">No Image</div>
                     )}
