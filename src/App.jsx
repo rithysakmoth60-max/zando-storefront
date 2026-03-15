@@ -55,7 +55,7 @@ function App() {
     }
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://zando-api-live.onrender.com/api/products');
+        const response = await axios.get('https://zando-backend-1.onrender.com/api/products');
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -137,7 +137,7 @@ function App() {
     setCheckoutLoading(true);
     
     try {
-      const response = await axios.post('https://zando-api-live.onrender.com/api/orders/checkout', {
+      const response = await axios.post('https://zando-backend-1.onrender.com/api/orders/checkout', {
         customer_email: currentUser.email || "google_user@zando.local", 
         items: cart
       });
